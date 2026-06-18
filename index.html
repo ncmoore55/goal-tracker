@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#0f1115" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Discipline" />
+<title>Discipline — Goal Tracker</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+
+    <header class="header">
+      <div class="header-title">
+        <h1>Discipline</h1>
+        <div class="header-sub" id="monthLabel">— —</div>
+      </div>
+      <div class="header-controls">
+        <select id="historySelect"></select>
+        <button id="exportBtn">Export</button>
+        <button id="importBtn">Import</button>
+        <input type="file" id="importFile" accept=".json" hidden />
+        <button id="settingsBtn" class="primary">⚙ Edit Goals</button>
+      </div>
+    </header>
+
+    <div class="history-banner" id="historyBanner">Viewing archived month — read only</div>
+
+    <!-- Dashboard widgets -->
+    <section class="dashboard-grid">
+      <div class="card progress-card">
+        <div class="card-label">Daily Progress</div>
+        <div class="progress-track"><div class="progress-fill" id="dailyFill"></div></div>
+        <div class="progress-value" id="dailyValue">0 / 0 <span class="sub">today</span></div>
+      </div>
+
+      <div class="card progress-card">
+        <div class="card-label">Weekly Progress</div>
+        <div class="progress-track"><div class="progress-fill" id="weeklyFill"></div></div>
+        <div class="progress-value" id="weeklyValue">0% <span class="sub">this week</span></div>
+      </div>
+
+      <div class="card progress-card">
+        <div class="card-label">Monthly Progress</div>
+        <div class="progress-track"><div class="progress-fill" id="monthlyFill"></div></div>
+        <div class="progress-value" id="monthlyValue">0% <span class="sub">month to date</span></div>
+      </div>
+
+      <div class="card">
+        <div class="card-label">Current Streaks</div>
+        <div class="streak-list" id="streakList"></div>
+      </div>
+
+      <div class="card span-2 heatmap-card">
+        <div class="card-label">Habit Completion Heatmap</div>
+        <div class="heatmap" id="heatmap"></div>
+      </div>
+
+      <div class="card span-2 calendar-card">
+        <div class="card-label">Completion Calendar</div>
+        <div class="calendar-weekdays">
+          <div>Su</div><div>Mo</div><div>Tu</div><div>We</div><div>Th</div><div>Fr</div><div>Sa</div>
+        </div>
+        <div class="calendar-grid" id="calendarGrid"></div>
+      </div>
+    </section>
+
+    <!-- Bar charts -->
+    <section class="charts-grid">
+      <div class="card">
+        <div class="card-label">Habit Completion % — This Month</div>
+        <canvas id="habitBarChart"></canvas>
+      </div>
+      <div class="card">
+        <div class="card-label">Weekly Score Progression</div>
+        <canvas id="weekBarChart"></canvas>
+      </div>
+    </section>
+
+    <!-- Daily tracking grid -->
+    <section class="card grid-card">
+      <div class="card-label">Daily Tracking</div>
+      <div class="grid-scroll">
+        <table id="trackingTable"></table>
+      </div>
+    </section>
+
+    <!-- Weekly & Monthly panels -->
+    <section class="panels-grid">
+      <div class="card">
+        <div class="card-label">Weekly Tracking</div>
+        <table id="weeklyTable"></table>
+      </div>
+      <div class="card">
+        <div class="card-label">Monthly Tracking</div>
+        <div class="stats-list" id="monthlyStats"></div>
+      </div>
+    </section>
+
+    <!-- Comparison charts -->
+    <section class="charts-grid">
+      <div class="card">
+        <div class="card-label">Mental State vs Habit Completion</div>
+        <canvas id="mentalChart"></canvas>
+        <div class="chart-legend">
+          <span class="legend-a">Completion %</span>
+          <span class="legend-b">Mental State (x10)</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-label">Motivation vs Habit Completion</div>
+        <canvas id="motivationChart"></canvas>
+        <div class="chart-legend">
+          <span class="legend-a">Completion %</span>
+          <span class="legend-b">Motivation (x10)</span>
+        </div>
+      </div>
+    </section>
+
+    <footer>Discipline Tracker — built to be earned, one day at a time.</footer>
+  </div>
+
+  <!-- Settings modal -->
+  <div class="modal-overlay" id="settingsModal">
+    <div class="modal">
+      <h2>Edit Goals</h2>
+      <div id="habitEditList"></div>
+      <button id="addHabitBtn">+ Add Goal</button>
+      <div class="modal-note">
+        Changes apply immediately and recalculate every chart and stat. Renaming a goal keeps its history;
+        removing one discards its check marks for this month.
+      </div>
+      <div class="modal-actions">
+        <button class="danger-outline" id="resetMonthBtn">Reset This Month</button>
+        <button class="primary" id="closeSettingsBtn">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
