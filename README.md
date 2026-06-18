@@ -7,6 +7,13 @@ A personal habit/discipline tracker, in two forms:
 
 Both default to the same 8 habits: Wake Up at 6:00 AM, Meditation / Stretch, Hit the Gym, Cold Shower, Read 10 Pages, Pray, Deep Work, Limit Social Media.
 
+## Use it on your phone without any installaton in only a few steps.
+
+On your phone:
+1. Open that URL in Safari (or Chrome). https://ncmoore55.github.io/goal-tracker/
+2. Tap the share icon → Add to Home Screen.
+3. It'll launch like a real app — full screen, no Safari address bar, with the "Discipline" name/icon.
+
 ## Web dashboard
 
 Open `index.html` directly in a browser (Chrome or Edge recommended) — no server or install needed.
