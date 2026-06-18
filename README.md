@@ -20,6 +20,16 @@ Open `index.html` directly in a browser (Chrome or Edge recommended) — no serv
 
 All data is stored in your browser's `localStorage` — nothing is sent to a server. Clearing browser data for this page will erase your history, so export a backup periodically if you care about long-term records.
 
+### Use it on your phone
+
+This dashboard is hosted live at **https://ncmoore55.github.io/goal-tracker/** via GitHub Pages, so you can use it on your phone without running anything locally.
+
+1. Open that URL in your phone's browser (Safari on iPhone, Chrome on Android).
+2. Tap the share icon and choose **Add to Home Screen**.
+3. It launches full-screen like a real app — no browser address bar — with the "Discipline" name and icon.
+
+Note: your phone and any other device each keep their own independent `localStorage` data — there's no syncing between them. Use Export/Import if you want to move your data from one device to another.
+
 ## Excel template
 
 Open `Goal Tracker Template.xlsx` in Excel (or LibreOffice/Google Sheets — conditional formatting and charts may render slightly differently outside Excel).
