@@ -476,6 +476,10 @@ def build_tracker(wb):
 
     build_charts(ws, wb)
 
+    # --- Watermark / credit ---
+    credit = ws.cell(row=47, column=1, value="© Nikolas Moore — Discipline Goal Tracker")
+    credit.font = MUTED_FONT
+
     # --- Column widths ---
     ws.column_dimensions[col(COL_HABIT)].width = 26
     for d in range(1, DAY_COLS + 1):
@@ -619,6 +623,9 @@ def main():
     wb = openpyxl.Workbook()
     default = wb.active
     wb.remove(default)
+
+    wb.properties.creator = "Nikolas Moore"
+    wb.properties.lastModifiedBy = "Nikolas Moore"
 
     build_helpers(wb)
     build_tracker(wb)

@@ -936,3 +936,6 @@ saveData();
 let viewMonth = 'current';
 
 renderAll();
+
+const footerYearEl = document.getElementById('footerYear');
+if (footerYearEl) footerYearEl.textContent = new Date().getFullYear();
