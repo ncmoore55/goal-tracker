@@ -61,3 +61,5 @@ python generate_excel_tracker.py
 This overwrites `Goal Tracker Template.xlsx` in this folder. Edit the `HABITS` list near the top of the script to change the default goal names — the recipient can still rename them directly in Excel afterward without rerunning anything.
 
 ## This repository is being used to practice GIt, GIthub, Linux, DOcker, and CI/CD workflows
+
+## Branch Practice
