@@ -24,6 +24,11 @@ jobs:
       - name: Display success message
         run: echo "Github Actions is working!"
 
+      - name: Upload website files
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
